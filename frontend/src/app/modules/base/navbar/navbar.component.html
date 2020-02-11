@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <div>
+    <a [routerLink]="['/profile']">LOGO</a>
+  </div>
+  <div fxFlex>
+    <ul fxLayout fxLayoutGap="10px" class="navigations-item">
+      <li class="navigation-items" *ngIf="authService.isLoggedIn()">
+        <a routerLink="/worker/profile">Profile</a>
+      </li>
+      <div fxFlex fxLayoutAlign="flex-end">
+        <li class="navigation-items" *ngIf="!authService.isLoggedIn()">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li class="navigation-items" *ngIf="authService.isLoggedIn()">
+          <a routerLink="/logout" (click)="logout()">Logout</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</mat-toolbar>
